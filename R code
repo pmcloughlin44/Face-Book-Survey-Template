@@ -1,6 +1,9 @@
+
+
 #Facebook Survey Template
 
 Myurl<-"https://docs.google.com/spreadsheets/d/e/2PACX-1vSOQJSNr-6RJoqPJOsyrB5g1R3V4oNJss4oBuuc0WLlYJBo-YxSbyE9MVpCLvcgzD7sdlDq6m6VXYo0/pub?gid=0&single=true&output=csv"
+
 Facebook_Survey<-read.csv(url(Myurl))
 Facebook_Survey
 age<-Facebook_Survey$Age
@@ -19,6 +22,7 @@ average_user_visits=sum(visits)/sum(facebook)
 average_user_age=sum(age)/sum(facebook)
 average_users=mean(facebook)
 average_user_friends=sum(friends)/sum(facebook)
+
 men<-length(gender)-sum(gender)
 women<-sum(gender)
 print("Number of people in survey")
@@ -38,13 +42,16 @@ average_user_friends
 
 # Bar chart of Facebook users by sex
 
+
 # number men in survey how do not have a Facebook account.
+
 nfm<-0
 for (i in 1:length(gender)){
  if ( gender[i] ==0 & facebook[i]==0)
 nfm=nfm+1}
 print("number men in survey how do not have a Facebook account.")
 nfm
+
 
 # number men in survey how have a Facebook account.
 fm<-0
@@ -54,7 +61,6 @@ fm=fm+1}
 print("number men in survey how have a Facebook account.")
 fm
 
-
 # number women in survey how do not have a Facebook account.
 nfw<-0
 for (i in 1:length(gender)){
@@ -62,6 +68,7 @@ for (i in 1:length(gender)){
 nfw=nfw+1}
 print("number women in survey how do not have a Facebook account.")
 nfw
+
 
 # number women in survey how have a Facebook account.
 fw<-0
@@ -83,21 +90,25 @@ status <- c("No Facebook","Facebook")
 # Create the bar chart
 barplot(values, main = "Facebook user breakdown by sex", names.arg = sex, xlab = "Men vs Women", ylab = "number", col = colors)
 
+
 # Add the legend to the chart
 legend("topright", status, cex = .6, fill = colors)
+
 
 #Facebook users who are men
 
 # values to be removed
 x<-c(0)
 y<-c(1)
-# positions where Facebook has zeros or gender is 1
+
+# positions where facebook has zeros or gender is 1
 Positions= which(facebook %in% x | gender %in% y)
 men_user_visits<- visits[-Positions]
 men_user_visits
 men_user_age<-age[-Positions]
 men_user_friends<-friends[-Positions]
 men_user_friends
+
 
 #Facebook users who are women
 
@@ -108,11 +119,11 @@ women_user_visits
 women_user_age<-age[-Positions]
 women_user_friends<-friends[-Positions]
 
-# Bar chart of Facebook users by sex
 
+# Bar chart of  user ages by sex
 #women age breakdown
 z=seq(from=10, to=15,by=1)
-p= which( women_user_age %in% z)
+p= which( women_user_age %in% z) 
 women_user_10to15<-lengths(p)
 women_user_10to15
 z=seq(from=16, to=21,by=1)
@@ -160,63 +171,135 @@ women_user_94to99<-lengths(p)
 
 #men age breakdown
 z=seq(from=10, to=15,by=1)
-p= which( men_user_age %in% z)
-men_user_10to15<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_10to15<-0, men_user_10to15<-length(p))
 men_user_10to15
+
 z=seq(from=16, to=21,by=1)
-p= which( men_user_age %in% z)
-men_user_16to21<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_16to21<-0, men_user_16to21<-length(p))
+men_user_16to21
+
 z=seq(from=22, to=27,by=1)
-p= which( men_user_age %in% z)
-men_user_22to27<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_22to27<-0, men_user_22to27<-length(p))
+men_user_22to27
+
 z=seq(from=28, to=33,by=1)
-p= which( men_user_age %in% z)
-men_user_28to33<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_28to33<-0, men_user_28to33<-length(p))
+men_user_28to33
+
 z=seq(from=34, to=39,by=1)
-p= which( men_user_age %in% z)
-men_user_34to39<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_34to39<-0, men_user_34to39<-length(p))
+men_user_34to39
+
 z=seq(from=40, to=45,by=1)
-p= which( men_user_age %in% z)
-men_user_40to45<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_40to45<-0, men_user_40to45<-length(p))
+men_user_40to45
+
 z=seq(from=46, to=51,by=1)
-p= which( men_user_age %in% z)
-men_user_46to51<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_46to51<-0, men_user_46to51<-length(p))
+men_user_46to51
+
 z=seq(from=52, to=57,by=1)
-p= which( men_user_age %in% z)
-men_user_52to57<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_52to57<-0, men_user_52to57<-length(p))
+men_user_52to57
+
 z=seq(from=58, to=63,by=1)
-p= which( men_user_age %in% z)
-men_user_58to63<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_58to63<-0, men_user_58to63<-length(p))
+men_user_58to63
+
 z=seq(from=64, to=69,by=1)
-p= which( men_user_age %in% z)
-men_user_64to69<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_64to69<-0, men_user_64to69<-length(p))
+men_user_64to69
+
 z=seq(from=70, to=75,by=1)
-p= which( men_user_age %in% z)
-men_user_70to75<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_70to75<-0, men_user_70to75<-length(p))
+men_user_70to75
+
 z=seq(from=76, to=81,by=1)
-p= which( men_user_age %in% z)
-men_user_76to81<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_76to81<-0, men_user_76to81<-length(p))
+men_user_76to81
+
 z=seq(from=82, to=87,by=1)
-p= which( men_user_age %in% z)
-men_user_82to87<-lengths(p)
+p<- which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_82to87<-0, men_user_82to87<-length(p))
+men_user_82to87
+
 z=seq(from=88, to=93,by=1)
-p= which( men_user_age %in% z)
-men_user_88to93<-lengths(p)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_88to93<-0, men_user_88to93<-length(p))
+men_user_88to93
+
 z=seq(from=94, to=98,by=1)
+p<-which( men_user_age %in% z)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_94to98<-0, men_user_94to98<-length(p))
+men_user_94to98
+
+men_user_age
+
+
+# Create the matrix of the values.
+values <- matrix(c(men_user_10to15,women_user_10to15,men_user_16to21,women_user_16to21, men_user_22to27,women_user_22to27, men_user_28to33,women_user_28to33, nrow = 2, ncol =4 , byrow= TRUE)
+values
+
+
+
+# Create the matrix of the values.
+values <- matrix(c(1,2,3,4,5,6,7,8), nrow = 2, ncol = 4, byrow= FALSE)
+values
+
+#Create the input vectors.
+colors = c("green","orange")
+Ages <- c("10-15","16-21","22-27","28-33")
+status <- c("men","women")
+
+# Create the bar chart
+barplot(values, main = "Facebook user ages by sex", names.arg = Ages, xlab = "Men vs Women", ylab = "number", col = colors)
+
+# Add the legend to the chart
+legend("bottomright", status, cex = .8, fill = colors)
+
+z=seq(from=10, to=15,by=1)
 p= which( men_user_age %in% z)
-men_user_94to99<-lengths(p)
+#get rid of integer(0)
+ifelse(identical(p,integer(0))==TRUE
+, men_user_10to15<-0, men_user_10to15<-lengths(p))
 
 
+#value = integer(0)
+#identical(value, integer(0))
+# [1] TRUE
+#ifelse(identical(value, #integer(0))==TRUE,value<-0, print("failed"))
 
 
+ifelse(test_expression, x, y)
 
-
-
-
-
-
-
-
+identical(p,integer(0))
 
 
 #First regression model: Scatter plot and regression line. Analyzing how well facebook visits predicts number of Facebook friends.
@@ -307,5 +390,6 @@ plot(men_user_visits, men_user_friends, xlab="average number of visits per week"
 men_user_visits
 men_user_friends
 plot(7,20)
+
 
 
